@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
+
+	"github.com/huboleo/storkey/internal"
 )
 
 func main() {
@@ -24,10 +25,15 @@ func main() {
 	// 	panic("shit2")
 	// }
 	// fmt.Printf("Everything went well, this the command i run: %s", output)
-	cmd := exec.Command("security", "find-generic-password", "-a", "storkey", "-s", "githubrepo", "-w")
-	out, err := cmd.CombinedOutput()
+	// cmd := exec.Command("security", "find-generic-password", "-a", "storkey", "-s", "githubrepo", "-w")
+	// out, err := cmd.CombinedOutput()
+	// if err != nil {
+	// 	panic("shit")
+	// }
+	// fmt.Printf("output is: %s", out)
+	err := internal.Add()
 	if err != nil {
 		panic("shit")
 	}
-	fmt.Printf("output is: %s", out)
+	fmt.Println("Everything should be fine, check the keychain")
 }
