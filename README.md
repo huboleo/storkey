@@ -1,0 +1,3 @@
+## Proof of concept for env files management tool
+It uses os native storage (macos keychain by now) and is integrated with git repo urls to easily save and pull env files associated with given repo. Could be easily extendable to work with windows and linux or 3rd party providers like bitwarden, keepassxc and so on...
+Maybe I'll get back to this sometimes in the future

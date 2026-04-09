@@ -18,7 +18,16 @@ func Branch() (string, error) {
 	gitBranchCmd := exec.Command("git", "branch", "--show-current")
 	out, err := gitBranchCmd.CombinedOutput()
 	if err != nil {
-		return "", nil
+		return "", err
+	}
+	return strings.TrimSpace(string(out)), nil
+}
+
+func RepoRoot() (string, error) {
+	gitRootCmd := exec.Command("git", "rev-parse", "--show-toplevel")
+	out, err := gitRootCmd.CombinedOutput()
+	if err != nil {
+		return "", err
 	}
 	return strings.TrimSpace(string(out)), nil
 }
